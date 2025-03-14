@@ -18,6 +18,16 @@ services:
       networks:
         - ollama-docker
 
+  fastapi:
+    build: ./fastapi  # Path to your FastAPI app
+    container_name: fastapi-server
+    ports:
+      - "8000:8000"  # FastAPI app exposed to port 8000
+    depends_on:
+      - ollama  # Wait for Ollama container to be ready
+    networks:
+      - ollama-docker
+      
 networks:
   ollama-docker:
     external: false
