@@ -22,10 +22,10 @@ def extract_sql(text):
 
 def execute_user_query(llm=llm_model,db_name= any, question=any):
 
-    POSTGRES_USER="david"
-    POSTGRES_PASSWORD=""
-    POSTGRES_HOST="127.0.0.1"
-    POSTGRES_PORT="5431"
+    POSTGRES_USER="postgres"
+    POSTGRES_PASSWORD="${db_password}"
+    POSTGRES_HOST="nozomi.proxy.rlwy.net"
+    POSTGRES_PORT="57213"
     POSTGRES_DB=db_name
     connection_string = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
     engine = create_engine(connection_string)
