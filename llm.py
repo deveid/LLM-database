@@ -12,7 +12,7 @@ import streamlit as st
 load_dotenv()
 
 OLLAMA_SERVER_URL="http://localhost:11434"
-llm_model=Ollama(model="gemma3:4b", temperature=0.1, base_url=OLLAMA_SERVER_URL)
+llm_model=Ollama(model="gemma3:4b", temperature=0.1)
 
 
 def extract_sql(text):
