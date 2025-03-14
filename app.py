@@ -2,11 +2,11 @@ import streamlit as st
 from llm import execute_user_query
 # Sample images for dropdown
 image_options = {
-    "dvdrental": "/Users/david/Documents/langchain/test/images/dvdrental.png",
+    "railway": "../images/dvdrental.png",
 }
 
 response_options = {
-        "dvdrental": "Sure! Here’s some information from the dvdrental database.",
+        "railway": "Sure! Here’s some information from the dvdrental database.",
         "medicore": "Fetching medical data for you...",
         "finledger": "Accessing financial records...",
     }
