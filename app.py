@@ -2,7 +2,7 @@ import streamlit as st
 from llm import execute_user_query
 # Sample images for dropdown
 image_options = {
-    "railway": "/images/dvdrental.png",
+    "railway": "images/dvdrental.png",
 }
 
 response_options = {
