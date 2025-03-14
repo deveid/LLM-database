@@ -27,7 +27,7 @@ services:
       - ollama  # Wait for Ollama container to be ready
     networks:
       - ollama-docker
-      
+
 networks:
   ollama-docker:
-    external: false
+    external: true
