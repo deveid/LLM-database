@@ -6,3 +6,4 @@ langchain_community
 sqlalchemy
 dotenv
 langchain_experimental
+psycopg2
