@@ -7,6 +7,8 @@ from langchain_experimental.sql import SQLDatabaseChain
 from langchain_community.utilities.sql_database import SQLDatabase
 from sqlalchemy import create_engine
 from langchain.sql_database import SQLDatabase
+import streamlit as st
+
 load_dotenv()
 
 OLLAMA_SERVER_URL="http://localhost:11434"
@@ -22,10 +24,10 @@ def extract_sql(text):
 
 def execute_user_query(llm=llm_model,db_name= any, question=any):
 
-    POSTGRES_USER="postgres"
-    POSTGRES_PASSWORD="${db_password}"
-    POSTGRES_HOST="nozomi.proxy.rlwy.net"
-    POSTGRES_PORT="57213"
+    POSTGRES_USER= st.secrets["db_name"]
+    POSTGRES_PASSWORD=st.secrets["db_password"]
+    POSTGRES_HOST= st.secrets["postgres_host"]
+    POSTGRES_PORT= "57213"
     POSTGRES_DB=db_name
     connection_string = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
     engine = create_engine(connection_string)
