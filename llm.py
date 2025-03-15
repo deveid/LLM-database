@@ -11,7 +11,7 @@ import streamlit as st
 
 load_dotenv()
 
-OLLAMA_SERVER_URL = "https://3a16-142-68-205-125.ngrok-free.app"
+OLLAMA_SERVER_URL = st.secrets["server"]
 llm_model=Ollama(model="gemma3:4b", temperature=0.1, base_url=OLLAMA_SERVER_URL)
 
 
