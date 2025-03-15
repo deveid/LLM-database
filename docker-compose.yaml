@@ -4,7 +4,7 @@ services:
       image: ollama/ollama:latest
       platform: linux/arm64  # Required for Mac M1/M2
       ports:
-        - 11435:11435
+        - 11434:11434
       volumes:
         - .:/code
         - ./ollama/ollama:/root/.ollama
@@ -15,19 +15,16 @@ services:
       environment:
         - OLLAMA_KEEP_ALIVE=24h
         - OLLAMA_HOST=0.0.0.0
+        - OLLAMA_ORIGINS=chrome-extension://*,moz-extension://*,safari-web-extension://* ollama serve
       networks:
         - ollama-docker
-
   ngrok:
     image: ngrok/ngrok:latest
-    command:
-      - "http"
-      - "http://host.docker.internal:11435"
+    command: ["http", "http://host.docker.internal:11434", "--host-header=localhost:11434"]
     environment:
       NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
     ports:
       - 4040:4040
-
 networks:
   ollama-docker:
     external: false
