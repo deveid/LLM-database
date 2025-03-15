@@ -11,8 +11,8 @@ import streamlit as st
 
 load_dotenv()
 
-# OLLAMA_SERVER_URL="http://localhost:11434"
-llm_model=Ollama(model="gemma3:4b", temperature=0.1)
+OLLAMA_SERVER_URL = "https://01b3-142-68-205-125.ngrok-free.app"
+llm_model=Ollama(model="gemma3:4b", temperature=0.1, base_url=OLLAMA_SERVER_URL)
 
 
 def extract_sql(text):
