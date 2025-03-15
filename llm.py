@@ -8,11 +8,13 @@ from langchain_community.utilities.sql_database import SQLDatabase
 from sqlalchemy import create_engine
 from langchain.sql_database import SQLDatabase
 import streamlit as st
+from langchain.cache import InMemoryCache
 
 load_dotenv()
 
 OLLAMA_SERVER_URL = st.secrets["server"]
 llm_model=Ollama(model="gemma3:4b", temperature=0.1, base_url=OLLAMA_SERVER_URL)
+llm_model.cache = InMemoryCache()
 
 
 def extract_sql(text):
